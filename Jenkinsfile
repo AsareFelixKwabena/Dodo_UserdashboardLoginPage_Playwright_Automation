@@ -1,20 +1,3 @@
-pipeline {
-	triggers {
-		cron('H 2 * * *')  // Run daily at 2 AM
-    }
-    stages {
-		stage('Build') {
-			steps {
-				echo 'Building the project...'
-            }
-        }
-        stage('Test') {
-			steps {
-				echo 'Running automated tests...'
-            }
-        }
-    }
-}
 
 
 pipeline {
