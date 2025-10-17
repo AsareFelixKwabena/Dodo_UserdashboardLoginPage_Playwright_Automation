@@ -1,4 +1,23 @@
 pipeline {
+	triggers {
+		cron('H 2 * * *')  // Run daily at 2 AM
+    }
+    stages {
+		stage('Build') {
+			steps {
+				echo 'Building the project...'
+            }
+        }
+        stage('Test') {
+			steps {
+				echo 'Running automated tests...'
+            }
+        }
+    }
+}
+
+
+pipeline {
     agent any
 
     stages {
@@ -19,7 +38,7 @@ pipeline {
         stage('Run Playwright Tests') {
             steps {
                 echo 'Running Playwright tests...'
-                bat 'npx playwright test --reporter=list || exit 0'
+                bat 'npx playwright test --reporter=list'
             }
         }
 
